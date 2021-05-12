@@ -1,0 +1,54 @@
+{% extends 'piz/home.html' %}
+{% block content %}
+{% include 'piz/base.html' %}
+
+{% load custom_filter %}
+{%block title %}
+<br><br>
+
+<h1 style="text-align:left">Consumer Data Collection</h1>{% endblock %}
+<br>
+  <html>
+  <body>
+    <table style="width:90%" class="w3-table w3-striped w3-white">
+    <tr>
+      <th> </th>
+    <th>User Id</th>
+    <th>Data Id</th>
+    <th>Data Path</th>
+    <th>Result Id</th>
+    <th>Action</th>
+    </tr>
+    {% for data in consumer_data_list %}
+    <tr>
+      <td>
+        <input type="radio" name = "model" value="yes">
+        </td>
+      <td>
+        {{data.2}} <br>
+        </td>
+        <td>
+          {{data.3}} <br>
+          </td>
+          <td>
+            {{data.4}} <br>
+            </td>
+            <td>
+              {{data.5}} <br>
+              </td>
+              <td>
+                <button><a href="{%url 'consumer_result_view' result_id=data.5 %}">view</a></button>
+                <button><a href="{{ data.4 }}" > download </a></button>
+                <button><a href="{% url 'del_data' data_id=data.3 %}"> delete </a></button>
+                <br>
+                </td>
+        </tr>
+    {% endfor %}
+  </table>
+
+        <br>
+      </body>
+      </html>
+
+
+{% endblock %}

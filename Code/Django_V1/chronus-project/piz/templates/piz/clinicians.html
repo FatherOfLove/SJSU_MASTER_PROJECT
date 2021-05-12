@@ -1,0 +1,46 @@
+{% extends 'piz/home.html' %}
+{% block content %}
+
+<br><br>
+<h1 class="w3-xxxlarge" style="text-align:center"> Manage Your Patient's Information</h1>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body, html {
+  height: 70%;
+  margin: 0;
+}
+
+.bg {
+  /* The image used */
+  background-image: url("/static/medical.jpg");
+  /* Full height */
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+<body>
+
+<div class="bg">
+  <ul>
+    <br>
+  <p class="w3-xlarge w3-text-white">Login and Upload Data.</p>
+  <p class="w3-xlarge w3-text-white">Get instant results.</p>
+  <p class="w3-xlarge w3-text-white">Choose from the best models.</p>
+  <p class="w3-xlarge w3-text-white">Generate Access code for patients.</p>
+  <p class="w3-xlarge w3-text-white">Manage and store results and data.</p>
+  </ul>
+</div>
+<br>
+<center>
+<a class="w3-button w3-black w3-padding-large" href="{%url 'login' %}">Login</a>
+<a class="w3-button w3-black w3-padding-large" href="{%url 'register' %}">Sign Up</a>
+</center>
+
+</body>
+
+
+{% endblock%}

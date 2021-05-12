@@ -1,0 +1,124 @@
+{% extends 'piz/home.html' %}
+
+{% block content %}
+{% if user.is_staff %}
+{% include 'piz/base.html' %}
+
+{% load custom_filter %}
+<h1 style="text-align:center"> Patient Data Information</h1>
+<br>
+
+<h1 > Information Table</h1>
+<html>
+
+<body>
+  <table style="width:90%" class="w3-table w3-striped w3-white">
+  <tr>
+  <th>User ID</th>
+  <th>Result ID</th>
+  <th>Result</th>
+  <th>Access Code</th>
+  <th>Model ID</th>
+  <th>Data Path</th>
+  <th>Data ID</th>
+  <th>Data Size/bytes</th>
+  </tr>
+  <td>
+    {{user_id}}
+    </td>
+    <td>
+      {{result_id}}
+      </td>
+      <td>
+        {{label}}
+        </td>
+        <td>
+          {{access_code}}
+          </td>
+        <td>
+          {{model_id}}
+          </td>
+          <td>
+            {{data_path}}
+            </td>
+            <td>
+              {{data_id}}
+              </td>
+              <td>
+                {{data_size}}
+                </td>
+  </table>
+</body>
+</html>
+
+<br>
+<br>
+<br>
+<br>
+<h1 > Probability Table</h1>
+<html>
+<body>
+  <table style="width:40%" class="w3-table w3-striped w3-white">
+  <tr>
+  <th>{{labels.0}}</th>
+  <th>{{labels.1}}</th>
+  </tr>
+  <td>
+    {{prob.0}}
+    </td>
+    <td>
+      {{prob.1}}
+      </td>
+      <td>
+        {{prob.2}}
+        </td>
+        <td>
+          {{prob.3}}
+          </td>
+        <td>
+          {{prob.4}}
+          </td>
+          <td>
+            {{prob.5}}
+            </td>
+            <td>
+              {{prob.6}}
+              </td>
+              <td>
+                {{prob.7}}
+                </td>
+                <td>
+                  {{prob.8}}
+                  </td>
+                  <td>
+                    {{prob.9}}
+                    </td>
+                    <td>
+                      {{prob.10}}
+                      </td>
+                      <td>
+                        {{prob.11}}
+                        </td>
+                        <td>
+                          {{prob.12}}
+                          </td>
+  </table>
+</body>
+</html>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% else %}
+<p> you should  <a href="{% url 'login' %}">login</a> first</p>
+{% endif %}
+{% endblock%}

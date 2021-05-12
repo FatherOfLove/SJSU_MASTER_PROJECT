@@ -1,0 +1,188 @@
+{% extends 'piz/home.html' %}
+
+{% block content %}
+{% include 'piz/base.html' %}
+
+{% if user.is_authenticated %}
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:3px;margin-top:10px;">
+
+  <header class="w3-container" style="padding-top:22px">
+    <h5><b><i class="fa fa-dashboard"></i> My Dashboard</b></h5>
+  </header>
+  {% if user.is_staff %}
+  <div class="w3-row-padding w3-margin-bottom">
+    <div class="w3-quarter">
+      <div class="w3-container w3-red w3-padding-16">
+        <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>{{total_data_number}}</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Data</h4>
+      </div>
+    </div>
+    <div class="w3-quarter">
+      <div class="w3-container w3-blue w3-padding-16">
+        <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>{{total_models_number}}</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Models Generated</h4>
+      </div>
+    </div>
+
+    <div class="w3-quarter">
+      <div class="w3-container w3-orange w3-text-white w3-padding-16">
+        <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>{{total_users_number}}</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Users</h4>
+      </div>
+    </div>
+  </div>
+  <h5>Feeds</h5>
+  <table class="w3-table w3-striped w3-white">
+    <tr>
+      <td><i class="fa fa-user w3-text-blue w3-large"></i></td>
+      <td>Total Data</td>
+      <td><i>{{total_data_number}}</i></td>
+    </tr>
+    <tr>
+      <td><i class="fa fa-bell w3-text-red w3-large"></i></td>
+      <td>Database error</td>
+      <td><i>{{total_data_errors}}</i></td>
+    </tr>
+      <td><i class="fa fa-comment w3-text-red w3-large"></i></td>
+      <td>Access Codes Generated</td>
+      <td><i>{{total_access_code_generated}} </i></td>
+
+    <tr>
+      <td><i class="fa fa-bookmark w3-text-blue w3-large"></i></td>
+      <td>Results Delivered</td>
+      <td><i> {{total_results_delivered}}</i></td>
+    </tr>
+    <tr>
+      <td><i class="fa fa-laptop w3-text-red w3-large"></i></td>
+      <td>CPU overload</td>
+      <td><i>5 </i></td>
+    </tr>
+    <tr>
+      <td><i class="fa fa-share-alt w3-text-green w3-large"></i></td>
+      <td>Classification Performed</td>
+      <td><i>19 </i></td>
+    </tr>
+  </table>
+</div>
+
+  {% else %}
+  <div class="w3-row-padding w3-margin-bottom">
+    <div class="w3-quarter">
+      <div class="w3-container w3-red w3-padding-16">
+        <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>{{user_data_number}}</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Data</h4>
+      </div>
+    </div>
+    <div class="w3-quarter">
+      <div class="w3-container w3-blue w3-padding-16">
+        <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>{{total_models_number}}</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Models Generated</h4>
+      </div>
+    </div>
+
+    <!-- <div class="w3-quarter">
+      <div class="w3-container w3-orange w3-text-white w3-padding-16">
+        <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>{{user_data_number}}</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Users</h4>
+      </div>
+    </div>
+  </div> -->
+  <br>
+  <!-- <h5>Feeds</h5> -->
+  <table class="w3-table w3-striped w3-white">
+    <tr>
+      <td><i class="fa fa-user w3-text-blue w3-large"></i></td>
+      <td>Total Data</td>
+      <td><i>{{user_data_number}}</i></td>
+    </tr>
+    <tr>
+      <td><i class="fa fa-bell w3-text-red w3-large"></i></td>
+      <td>Database error</td>
+      <td><i>{{total_data_errors}}</i></td>
+    </tr>
+      <td><i class="fa fa-comment w3-text-red w3-large"></i></td>
+      <td>Access Codes Generated</td>
+      <td><i>{{user_access_code_generated}} </i></td>
+
+    <tr>
+      <td><i class="fa fa-bookmark w3-text-blue w3-large"></i></td>
+      <td>Results Delivered</td>
+      <td><i> {{user_results_delivered}}</i></td>
+    </tr>
+    <tr>
+      <td><i class="fa fa-laptop w3-text-red w3-large"></i></td>
+      <td>CPU overload</td>
+      <td><i>5 </i></td>
+    </tr>
+    <!-- <tr>
+      <td><i class="fa fa-share-alt w3-text-green w3-large"></i></td>
+      <td>Classification Performed</td>
+      <td><i>19 </i></td>
+    </tr> -->
+  </table>
+{% endif %}
+        <!-- <h5>Feeds</h5>
+        <table class="w3-table w3-striped w3-white">
+          <tr>
+            <td><i class="fa fa-user w3-text-blue w3-large"></i></td>
+            <td>Total Data</td>
+            <td><i>{{total_data_number}}</i></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-bell w3-text-red w3-large"></i></td>
+            <td>Database error</td>
+            <td><i>{{total_data_errors}}</i></td>
+          </tr>
+            <td><i class="fa fa-comment w3-text-red w3-large"></i></td>
+            <td>Access Codes Generated</td>
+            <td><i>{{total_access_code_generated}} </i></td>
+
+          <tr>
+            <td><i class="fa fa-bookmark w3-text-blue w3-large"></i></td>
+            <td>Results Delivered</td>
+            <td><i> {{total_results_delivered}}</i></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-laptop w3-text-red w3-large"></i></td>
+            <td>CPU overload</td>
+            <td><i>5 </i></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-share-alt w3-text-green w3-large"></i></td>
+            <td>Classification Performed</td>
+            <td><i>19 </i></td>
+          </tr>
+        </table>
+      </div> -->
+
+  <hr>
+  {% else %}
+  <p> you should  <a href="{% url 'login' %}">login</a> first</p>
+  {% endif %}
+{% endblock %}

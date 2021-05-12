@@ -1,0 +1,168 @@
+{% extends 'piz/home.html' %}
+
+{% block content %}
+{% include 'piz/base.html' %}
+
+{% load custom_filter %}
+
+{% block title %}
+<h1 style="text-align:center"> Patient Health Information</h1>{% endblock %}
+{% if user.is_authenticated %}
+<br>
+
+<h2><img src="/static/health-report.png "width="50" height="50"> Possible Result: {{label}}</h2>
+
+<b><lead><i class="fa fa-medkit"></i> Access Code: </b> {{access_code}}</lead>
+
+<br><br><br>
+<html>
+<body>
+  <table style="width:90%" class="w3-table w3-striped w3-white">
+  <tr>
+  <th>Result ID</th>
+  <th>Model ID</th>
+  <th>Data ID</th>
+  <th>User ID</th>
+  </tr>
+  <td>
+    {{result_id}}
+    </td>
+    <td>
+      {{model_id}}
+      </td>
+      <td>
+        {{data_id}}
+        </td>
+        <td>
+          {{user_id}}
+          </td>
+  </table>
+</body>
+</html>
+<br>
+<br>
+<h2> Probability Table</h2>
+<html>
+  <table style="width:40%" class="w3-table w3-striped w3-white">
+  <tr>
+  <th>{{labels.0}}</th>
+  <th>{{labels.1}}</th>
+  </tr>
+  <td>
+    {{prob.0}}
+    </td>
+    <td>
+      {{prob.1}}
+      </td>
+
+      </table>
+
+
+
+<br>
+<p>You can click the color label bar</p>
+
+  <div id="container" style="width:45%;">
+     <canvas id="pie-chart"></canvas>
+   </div>
+   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script><script>
+   var config = {
+       type: 'bar',
+       data: {
+         datasets: [{
+           data: {{prob|safe}},
+           backgroundColor: [
+             'Green','Red','pink','orange','Green'
+           ],
+           label: 'Population'
+         }],
+
+         labels: {{labels|safe}}
+         },
+       options: {
+         responsive: true
+       }
+     };
+
+     window.onload = function() {
+       var ctx = document.getElementById('pie-chart').getContext('2d');
+       window.myPie = new Chart(ctx, config);
+     };
+   </script>
+   <br>
+   <br>
+
+   <h2>Your ECG Electrocardiogram Graph By 12 Different Channels</h2>
+
+   <div style="height:450px;width:800px;overflow:scroll;">
+   	   <br>
+       {% if chart1 %}
+           <img src="data:image/png;base64, {{chart1|safe}}"width="900" height="230">
+       {% endif%}
+           <br>
+       {% if chart2%}
+           <img src="data:image/png;base64, {{chart2|safe}}"width="900" height="230">
+       {% endif%}
+           <br>
+           {% if chart3 %}
+               <img src="data:image/png;base64, {{chart3|safe}}"width="900" height="230">
+           {% endif%}
+               <br>
+               {% if chart4 %}
+                   <img src="data:image/png;base64, {{chart4|safe}}"width="900" height="230">
+               {% endif%}
+                   <br>
+                   {% if chart5 %}
+                       <img src="data:image/png;base64, {{chart5|safe}}"width="900" height="230">
+                   {% endif%}
+                       <br>
+                       {% if chart6 %}
+                           <img src="data:image/png;base64, {{chart6|safe}}"width="900" height="230">
+                       {% endif%}
+                           <br>
+                           {% if chart7 %}
+                               <img src="data:image/png;base64, {{chart7|safe}}"width="900" height="230">
+                           {% endif%}
+                               <br>
+                               {% if chart8 %}
+                                   <img src="data:image/png;base64, {{chart8|safe}}"width="900" height="230">
+                               {% endif%}
+                                   <br>
+                                   {% if chart9 %}
+                                       <img src="data:image/png;base64, {{chart9|safe}}"width="900" height="230">
+                                   {% endif%}
+                                       <br>
+                                       {% if chart10 %}
+                                           <img src="data:image/png;base64, {{chart10|safe}}" width="900" height="230">
+                                       {% endif%}
+                                           <br>
+                                           {% if chart11 %}
+                                               <img src="data:image/png;base64, {{chart11|safe}}"width="900" height="230">
+                                           {% endif%}
+                                               <br>
+                                               {% if chart12 %}
+                                                   <img src="data:image/png;base64, {{chart12|safe}}"width="900" height="230">
+                                                   <br>
+                                               {% endif%}
+                                                  <br>
+                                                 <br>
+
+   <br>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</html>
+
+{% else %}
+<p> you should  <a href="{% url 'login' %}">login</a> first</p>
+{% endif %}
+{% endblock%}

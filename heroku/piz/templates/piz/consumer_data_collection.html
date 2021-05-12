@@ -1,0 +1,60 @@
+{% extends 'piz/home.html' %}
+
+{% block content %}
+{% include 'piz/base.html' %}
+{% load custom_filter %}
+{% block title %}
+<br><br>
+<h1 style="text-align:left">Consumer Data Collection</h1>{% endblock %}
+{% if user.is_authenticated %}
+<br>
+<div class="container">
+  <html>
+  <body>
+    <table style="width:90%" class="w3-table w3-striped w3-white">
+    <tr>
+    <th></th>
+    <th> User ID</th>
+    <th> Data ID</th>
+    <th> Data Path</th>
+    <th> Result ID</th>
+    <th> Action</th>
+    </tr>
+    {% for data in consumer_data_list %}
+    <tr>
+      <td>
+        <input type="radio" name = "model" value="yes">
+        </td>
+      <td>
+        {{data.2}} <br>
+        </td>
+        <td>
+          {{data.3}} <br>
+          </td>
+          <td>
+            {{data.4}} <br>
+            </td>
+            <td>
+              {{data.5}} <br>
+              </td>
+              <td>
+                <button><a href="{%url 'consumer_result_view' result_id=data.5 %}"> View</a></button>
+                <button><a href="{{ data|convert_set_to_str }}" > Download </a></button>
+                <button><a href="{% url 'del_data' data_id=data.2 %}"> Delete </a></button>
+                <br>
+                </td>
+        </tr>
+    {% endfor %}
+  </table>
+  <button><a href="{% url 'download_all_as_csv' %}"> Download All Data As CSV </button>
+
+        <br>
+      </body>
+      </html>
+
+      </div>
+      {% else %}
+      <p> you should  <a href="{% url 'login' %}">login</a> first</p>
+      {% endif %}
+
+{% endblock %}

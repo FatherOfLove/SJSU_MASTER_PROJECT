@@ -1,0 +1,78 @@
+{% extends 'piz/home.html' %}
+
+{% block content %}
+{% include 'piz/base.html' %}
+
+{% block title %}
+<br>
+<video style="float:right;" width="500" height="450"  autoplay muted>
+<source src="/static/upload data.mp4" type="video/mp4">
+</video>
+<h1 style="text-align:left">Model Test</h1>{% endblock %}
+{% if user.is_staff %}
+
+<br>
+
+
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <td><i class="fa fa-laptop w3-text-red w3-large"></i></td>
+
+      <td> Select Project Type </td><br>
+      <input type="radio" name = "project_type" value="ECG" checked="true"> ECG <br>
+      <input type="radio" name = "project_type" value="Blood Cell" > Blood Cell <br>
+      <input type="radio" name = "project_type" value="Other"> Other <br>
+<br>
+      <label>Please Enter Unique Data ID for this record</label>
+      <input type="text" name="data_id">
+      <br>
+      <td><i class="fa fa-laptop w3-text-red w3-large"></i></td>
+
+      <td>Upload CSV or JSON file</td><br>
+      <input type="file" name="document">
+
+      <button type="submit">Upload  File</button>
+    </form>
+    <br>
+    {% if url %}
+      <p>Uploaded File: <a href="{{ url }}">{{ url }} </a></p>
+    {% endif %}
+    <br>
+    <br>
+    <h1>Result Table</h1>
+    <html>
+        <body>
+          <table style="width:90%" class="w3-table w3-striped w3-white">
+      <tr>
+      <th>Result</th>
+      <th>Probability</th>
+      <th>Access Code</th>
+      </tr>
+        <td>
+          {{label}}
+          </td>
+          <td>
+            {{prob}}
+            </td>
+            <td>
+              {{access_code}}
+              </td>
+      </table>
+    </body>
+    </html>
+    <br>
+    <br>
+    <br>
+    <!-- <input type="radio" name = "model" value="yes"> Data 1 <br> <button type="button" name="button"> View</button><button type="button" name="button"> Download</button>
+    <br>
+    <br>
+    <input type="radio" name = "model" value="yes"> Data 2 <br> <button type="button" name="button"> View</button><button type="button" name="button"> Download</button>
+    <br>
+    <br>
+    <input type="radio" name = "model" value="yes"> Data 3 <br> <button type="button" name="button"> View</button><button type="button" name="button"> Download</button>
+ -->
+
+ {% else %}
+ <p> you should  <a href="{% url 'login' %}">login</a> first</p>
+ {% endif %}
+{% endblock %}

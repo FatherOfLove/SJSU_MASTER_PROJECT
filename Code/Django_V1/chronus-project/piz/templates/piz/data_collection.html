@@ -1,0 +1,65 @@
+{% extends 'piz/home.html' %}
+
+{% block content %}
+
+{% include 'piz/base.html' %}
+{% load custom_filter %}
+
+{% block title %}
+
+<br><br>
+<h1 style="text-align:left">User Data Collection</h1>{% endblock %}
+{% if user.is_staff %}
+<br>
+<div class="container">
+  <html>
+  <body>
+  <table style="width:90%" class="w3-table w3-striped w3-white">
+    <tr>
+    <th></th>
+    <th>User Id</th>
+    <th>Data Id</th>
+    <th>Data Path</th>
+    <th>Result Id</th>
+    <th>Action</th>
+    </tr>
+      {% for data in all_data_list %}
+      <tr>
+        <td>
+          <input type="radio" name = "model" value="yes">
+          </td>
+        <td>
+          {{data.2}} <br>
+          </td>
+          <td>
+            {{data.3}} <br>
+            </td>
+            <td>
+              {{data.4}} <br>
+              </td>
+              <td>
+                {{data.5}} <br>
+                </td>
+                <td>
+                  <button><a href="{%url 'user_result_view' result_id=data.5  %}">View</a></button>
+                  <button><a href="{{ data.4 }}" > Download </a></button>
+                  <br>
+                  </td>
+          </tr>
+      {% endfor %}
+    </table>
+<button><a href="{% url 'admin_download_all_as_csv' %}"> Download All Data As CSV </button>
+<br>
+<br>
+<br>
+<br>
+<br>
+          <br>
+        </body>
+        </html>
+        </div>
+        {% else %}
+        <p> you should  <a href="{% url 'login' %}">login</a> first</p>
+        {% endif %}
+
+{% endblock %}

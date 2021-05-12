@@ -1,0 +1,85 @@
+{% extends 'piz/home.html' %}
+
+{% block content %}
+{% include 'piz/base.html' %}
+
+{% load custom_filter %}
+{%block title %}
+<br><br>
+<h1 style="text-align:left">Model Management</h1>{% endblock %}
+{% if user.is_staff %}
+<br>
+<br>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <!-- <td><i class="fa fa-laptop w3-text-red w3-large"></i></td>
+  <td> Create Project Type</td><br>
+  <label>Please Enter Name for this Project</label>
+  <input type="text" name="model_name"> -->
+<br>
+  <td><i class="fa fa-laptop w3-text-red w3-large"></i></td>
+  <td> Select Project Type</td><br>
+
+  <tr><input type="radio" name = "project_type" value="ECG" checked="true"> ECG <br>
+  <input type="radio" name = "project_type" value="Blood Cell" > Blood Cell <br>
+  <input type="radio" name = "project_type" value="Other"> Other <br></tr>
+<br>
+  <td><i class="fa fa-laptop w3-text-red w3-large"></i></td>
+  <td> Select Model Type</td><br>
+
+  <tr><input type="radio" name = "model_type" value="DL" checked="true"> DL <br>
+      <input type="radio" name = "model_type" value="ML" > ML <br>
+        <input type="file" name="model_file"> <button type="submit">Update  File</button><br></tr>
+
+</form>
+<br>
+<br>
+
+<html>
+<body>
+
+
+
+  <table style="width:90%" class="w3-table w3-striped w3-white">
+
+<tr>
+<th> Model_Id</th>
+<th> Model Version</th>
+<th> Project Type</th>
+<th> Model Type</th>
+<th> Status</th>
+<th> Action</th>
+</tr>
+    {% for data in model_list %}
+<tr>
+  <td>
+    {{data.0}}
+  </td>
+  <td>
+    {{data.1}}
+  </td>
+  <td>
+      {{data.2}}
+  </td>
+  <td>
+      {{data.3}}
+    </td>
+    <td>
+      {{data.4}}
+   </td>
+   <td>
+     <a href="{% url 'set_model_default' model_id=data.0 %}"> Set it default</a>
+     <a> | </a>
+     <a href="{% url 'del_model' model_id=data.0 %}">Delete</a>
+     </td>
+</tr>
+{% endfor %}
+
+</table>
+
+</body>
+</html>
+{% else %}
+<p> you should  <a href="{% url 'login' %}">login</a> first</p>
+{% endif %}
+{% endblock %}

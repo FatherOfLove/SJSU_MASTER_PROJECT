@@ -1,0 +1,17 @@
+-{% extends 'piz/base.html' %}
+-{% load custom_filter %}
+-{%block title %} Results{% endblock %}
+-{% block content %}
+-<p>data_list</p>
+-        {% for data in data_list %}
+-        <!-- Todo!!! Make the download result with the access code and the predict label -->
+-        <p>
+-          <p>
+-              <input type="radio" name = "model" value="yes">Uploaded File: <a href="{{ data|convert_set_to_str }}" >{{ data }} </a>
+-          </p>
+-            <button type="button" name="button"> View</button><button type="button" name="button"> Download</button>
+-        </p>
+-        <br>
+-        {% endfor %}
+-<button class="block">Download All</button>
+-{% endblock %}

@@ -1,0 +1,109 @@
+
+
+
+{% extends 'piz/home.html' %}
+
+{% block content %}
+{% include 'piz/base.html' %}
+
+{% block title %}
+
+
+
+<style>
+
+      form {
+      width: 46%;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: solid 1px #ccc;
+      box-shadow: 1px 2px 5px rgba(0,0,0,.31);
+      background: #ebebeb;
+      }
+      .info-item {
+      width: 50%;
+      }
+      label {
+    font-size: 18px;
+    color: #333;
+    height: 40px;
+    width: 100px;
+    margin-top: 10px;
+    margin-left: 0px;
+    text-align: right;
+    clear: both;
+    margin-right:15px;
+}
+      input {
+      width: calc(100% - 57px);
+      height: 36px;
+      border-radius: 0 5px 5px 0;
+      border: solid 1px #cbc9c9;
+      box-shadow: 1px 2px 5px rgba(0,0,0,.09);
+      background: #fff;
+      }
+      .icon {
+      padding: 9px 15px;
+      margin-top: -1px;
+      border-radius: 5px 0 0 5px;
+      border: solid 0px #cbc9c9;
+      background: #666;
+      color: #fff;
+      }
+      input[type=submit] {
+      width: 30%;
+      padding: 8px;
+      border-radius: 5px;
+      border: none;
+      background: #8ebf42;
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      }
+
+      textarea {
+      width: 30%;
+      margin-bottom: 6px;
+      }
+      button {
+      width: 30%;
+      padding: 8px;
+      border-radius: 5px;
+      border: none;
+      background: #8ebf42;
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      }
+      @media (min-width: 468px) {
+      .info {
+      flex-flow: row wrap;
+      justify-content: space-between;
+      }
+      .info-item {
+      width: 48%;
+      }
+      }
+    </style>
+  </head>
+
+  {% csrf_token %}
+  <h1 style="text-align:left"> {{error_info}}</h1>{% endblock %}
+  {% if user.is_authenticated %}
+  <html>
+
+
+
+    <button onclick="goBack()">Go Back</button>
+
+    <script>
+    function goBack() {
+      window.history.back();
+    }
+    </script>
+
+    {% else %}
+    <p> you should  <a href="{% url 'login' %}">login</a> first</p>
+    {% endif %}
+{% endblock %}

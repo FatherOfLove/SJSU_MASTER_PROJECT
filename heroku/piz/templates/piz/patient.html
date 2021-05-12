@@ -1,0 +1,95 @@
+{% extends 'piz/home.html' %}
+
+{% include 'piz/base.html' %}
+
+{% load custom_filter %}
+{% block content %}
+{% load custom_filter %}
+<br>
+<br>
+<h1 style="text-align:center"> Your Health Information</h1>
+
+<br>
+<br>
+<!-- To Do: show the data signal graph of the patient own data -->
+<center>
+<div class="container">
+
+<h2><img src="/static/health-report.png "width="50" height="50"> Possible Result: {{result.label}}</h2>
+<p> <h4>Recommendation : For more information please contact your personal Doctor.</h4></p>
+
+<b><i class="fa fa-medkit"></i> Access Code: </b> {{access_code}}
+
+<br>
+<br>
+
+<h3>Your ECG Electrocardiogram Graph By 12 Different Channels</h3>
+<div style="height:450px;width:800px;overflow:scroll;">
+
+    {% if chart1 %}
+        <img src="data:image/png;base64, {{chart1|safe}}"width="900" height="230">
+    {% endif%}
+        <br>
+    {% if chart2%}
+        <img src="data:image/png;base64, {{chart2|safe}}"width="900" height="230">
+    {% endif%}
+        <br>
+        {% if chart3 %}
+            <img src="data:image/png;base64, {{chart3|safe}}"width="900" height="230">
+        {% endif%}
+            <br>
+            {% if chart4 %}
+                <img src="data:image/png;base64, {{chart4|safe}}"width="900" height="230">
+            {% endif%}
+                <br>
+                {% if chart5 %}
+                    <img src="data:image/png;base64, {{chart5|safe}}"width="900" height="230">
+                {% endif%}
+                    <br>
+                    {% if chart6 %}
+                        <img src="data:image/png;base64, {{chart6|safe}}"width="900" height="230">
+                    {% endif%}
+                        <br>
+                        {% if chart7 %}
+                            <img src="data:image/png;base64, {{chart7|safe}}"width="900" height="230">
+                        {% endif%}
+                            <br>
+                            {% if chart8 %}
+                                <img src="data:image/png;base64, {{chart8|safe}}"width="900" height="230">
+                            {% endif%}
+                                <br>
+                                {% if chart9 %}
+                                    <img src="data:image/png;base64, {{chart9|safe}}"width="900" height="230">
+                                {% endif%}
+                                    <br>
+                                    {% if chart10 %}
+                                        <img src="data:image/png;base64, {{chart10|safe}}"width="900" height="230">
+                                    {% endif%}
+                                        <br>
+                                        {% if chart11 %}
+                                            <img src="data:image/png;base64, {{chart11|safe}}"width="900" height="230">
+                                        {% endif%}
+                                            <br>
+                                            {% if chart12 %}
+                                                <img src="data:image/png;base64, {{chart12|safe}}"width="900" height="230">
+                                            {% endif%}
+                                                <br>
+                                                {% if chart13 %}
+                                                    <img src="data:image/png;base64, {{chart13|safe}}"width="900" height="230">
+                                                {% endif%}
+                                                    <br>
+                                                    {% if chart14 %}
+                                                        <img src="data:image/png;base64, {{chart14|safe}}"width="900" height="230">
+                                                    {% endif%}
+                                                        <br>
+                                                        {% if chart15 %}
+                                                            <img src="data:image/png;base64, {{chart15|safe}}"width="900" height="230">
+                                                        {% endif%}
+                                                            <br>
+
+    <button class="block">Download Graph</button>
+<br>
+<div class="container">
+  </div>
+  </center>
+{% endblock%}

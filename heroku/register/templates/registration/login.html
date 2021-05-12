@@ -1,0 +1,43 @@
+{% extends 'piz/home.html' %}
+
+{% block title %}
+Login Here
+{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  body, html {
+    height: 100%;
+    margin: 0;
+  }
+
+  .bg {
+    /* The image used */
+    background-image: url("/static/register.jpg");
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  </style>
+  <body>
+
+  <div class="bg">
+
+  </body><br><br><br><br><br><br>
+  <div class="container">
+
+     <form method="post" class="from-group">
+       {% csrf_token %}
+       {{form|crispy}}
+	<p>Don't have an account? </p><p>Create one <a href="/register"> here</a></p>
+	<button type="submit" class="btn btn-success">Login</button>
+    </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends 'piz/home.html' %}
+{% block content %}
+
+{% include 'piz/base.html' %}
+{% load custom_filter %}
+
+{% block title %}
+<br><br>
+<h1 style="text-align:left">Registered Users</h1>{% endblock %}
+{% if user.is_staff %}
+<html>
+<body>
+
+  <table style="width:90%" class="w3-table w3-striped w3-white">
+  <tr>
+  <th>ID</th>
+  <th>User Name</th>
+  <th>First Name</th>
+  <th>Last Name</th>
+  <th>Company</th>
+  <th>Email</th>
+  <th>Phone Number</th>
+  <th>Activate Status</th>
+  <th>View Data</th>
+  </tr>
+  {% for data in user_data %}
+    <tr>
+      <td>
+        {{data.id}} <br>
+        </td>
+        <td>
+          {{data.username}} <br>
+          </td>
+    <td>
+      {{data.first_name}}<br>
+      </td>
+
+      <td>
+        {{data.last_name}}  </a><br>
+        </td>
+        <td>
+          {{data.user_info.company}}<br>
+          </td>
+        <td>
+          {{data.email}}
+          <td>
+            {{data.user_info.telephone}}<br>
+            </td>
+            <td>
+              {{data.is_active}}
+
+              {% if user.id != data.id %}
+              <button><a href="{%url 'edit_user_activation' user_id=data.id %}">  SWITCH </a></button><br>
+              {% endif %}
+              </td>
+              <td>
+                  <button><a href="{%url 'admin_view_consumer_data_collection' user_id=data.id %}"> VIEW </a></button> <button><a href="{%url 'user_info_setting' user_id=data.id %}"> Edit </a></button>
+              </td>
+
+  </tr>
+  {% endfor %}
+</table>
+
+</body>
+</html>
+{% else %}
+<p> you should  <a href="{% url 'login' %}">login</a> first</p>
+{% endif %}
+{% endblock %}

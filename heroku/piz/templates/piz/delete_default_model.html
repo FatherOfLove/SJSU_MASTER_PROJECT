@@ -1,0 +1,127 @@
+{% extends 'piz/home.html' %}
+{% load custom_filter %}
+{%block title %} Delete the default model {% endblock %}
+{% block content %}
+{% if user.is_authenticated %}
+{% include 'piz/base.html' %}
+<div class="container">
+<h1 style="text-align:center">You have deleted the default model of {{project_type}}</h1>
+<br> please set one of the models as default model:
+<br> Or <a href="{% url 'model_management'%}"> upload a new model</a> of {{project_type}}
+
+<style>
+
+      form {
+      width: 46%;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: solid 1px #ccc;
+      box-shadow: 1px 2px 5px rgba(0,0,0,.31);
+      background: #ebebeb;
+      }
+      .info-item {
+      width: 50%;
+      }
+      label {
+    font-size: 18px;
+    color: #333;
+    height: 40px;
+    width: 100px;
+    margin-top: 10px;
+    margin-left: 0px;
+    text-align: right;
+    clear: both;
+    margin-right:15px;
+}
+      input {
+      width: calc(100% - 57px);
+      height: 36px;
+      border-radius: 0 5px 5px 0;
+      border: solid 1px #cbc9c9;
+      box-shadow: 1px 2px 5px rgba(0,0,0,.09);
+      background: #fff;
+      }
+      .icon {
+      padding: 9px 15px;
+      margin-top: -1px;
+      border-radius: 5px 0 0 5px;
+      border: solid 0px #cbc9c9;
+      background: #666;
+      color: #fff;
+      }
+      input[type=submit] {
+      width: 30%;
+      padding: 8px;
+      border-radius: 5px;
+      border: none;
+      background: #8ebf42;
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      }
+
+      textarea {
+      width: 30%;
+      margin-bottom: 6px;
+      }
+      button {
+      width: 30%;
+      padding: 8px;
+      border-radius: 5px;
+      border: none;
+      background: #8ebf42;
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      }
+      @media (min-width: 468px) {
+      .info {
+      flex-flow: row wrap;
+      justify-content: space-between;
+      }
+      .info-item {
+      width: 48%;
+      }
+      }
+    </style>
+{% if "{{model_list|length}}" != 0 %}
+<table style="width:90%" class="w3-table w3-striped w3-white">
+<tr>
+<th>model_id</th>
+<th>model version</th>
+<th>project type</th>
+<th>model type</th>
+<th>status</th>
+<th>action</th>
+</tr>
+    {% for data in model_list %}
+<tr>
+  <td>
+    {{data.0}}
+  </td>
+  <td>
+    {{data.1}}
+  </td>
+  <td>
+      {{data.2}}
+  </td>
+  <td>
+      {{data.3}}
+    </td>
+    <td>
+      {{data.4}}
+   </td>
+   <td>
+     <a href="{% url 'set_model_default' model_id=data.0 %}"> Set it default</a>
+  </td>
+</tr>
+{% endfor %}
+</table>
+{% endif %}
+<br>
+</div>
+{% else %}
+<p> you should  <a href="{% url 'login' %}">login</a> first</p>
+{% endif %}
+{% endblock %}

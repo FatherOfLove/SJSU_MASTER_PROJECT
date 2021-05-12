@@ -1,0 +1,26 @@
+{% extends 'piz/home.html' %}
+{%block title %} Model Testing{% endblock %}
+{% block content %}
+
+
+<style>
+img {
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+
+<h2 style="text-align:center"> Your Health Information</h2>
+<img src="/static/patient_pic.jpg" alt="Paris" style="width:100%">
+
+
+<br><br><center>
+<form action="{%url 'patient'%}" method="post">
+  {% csrf_token %}
+    <label>Please Enter Access Code </label>
+    <input type="text" name="access_code">
+    <input type="submit" value="submit">
+</form></center>
+
+
+{% endblock%}
