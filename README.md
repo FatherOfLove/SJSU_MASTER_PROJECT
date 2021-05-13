@@ -37,4 +37,4 @@ Team Members:
 
 ## Site available at:https://jjjinc.herokuapp.com/
 
-![image] (https://github.com/FatherOfLove/SJSU_MASTER_PROJECT/blob/master/image/AI%20ENGINE%20.png)
+![alt text](https://github.com/FatherOfLove/SJSU_MASTER_PROJECT/blob/master/image/AI%20ENGINE%20.png)
