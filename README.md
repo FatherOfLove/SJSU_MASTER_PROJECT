@@ -22,7 +22,7 @@ PostgreSQL for database
 ## Steps to run the code:  
 1. Install the postgreSQL in your computer
 2. Clone the github and goto the folder  
-        $git clone https://github.com/SJSU272LabF17/Project-Team-6  
+        $git clone https://github.com/FatherOfLove/SJSU_MASTER_PROJECT.git  
         $cd ./Code/Django_V1/chronus-project/  
 2. create a virtual environment with python3  
 	$virtualenv -p /usr/local/bin/python3 Dependencies  
