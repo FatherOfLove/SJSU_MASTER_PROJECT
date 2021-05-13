@@ -14,10 +14,10 @@ Team Members:
 
 ## Technologies used:
 
-Python for backend  
-Django framework for integration of frontend and backend  
-JavaScript frame work with CSS and HTML for front end  
-PostgreSQL for database
+- Python for backend  
+- Django framework for integration of frontend and backend  
+- JavaScript frame work with CSS and HTML for front end  
+- PostgreSQL for database
 
 ## Steps to run the code:  
 1. Install the postgreSQL in your computer
@@ -37,4 +37,4 @@ PostgreSQL for database
 
 ## Site available at:https://jjjinc.herokuapp.com/
 
-![image] https://github.com/FatherOfLove/SJSU_MASTER_PROJECT/blob/master/image/AI%20ENGINE%20.png
+![image] (https://github.com/FatherOfLove/SJSU_MASTER_PROJECT/blob/master/image/AI%20ENGINE%20.png)
