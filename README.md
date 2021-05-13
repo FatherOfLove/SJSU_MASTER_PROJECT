@@ -36,5 +36,14 @@ Team Members:
 8. Open the port on browser and use the site.  
 
 ## Site available at:https://jjjinc.herokuapp.com/
+![Alt text](image/index.jpg?raw=true) 
+
+
+
+
+
 
 ![alt text](https://github.com/FatherOfLove/SJSU_MASTER_PROJECT/blob/master/image/AI%20ENGINE%20.png)
+![Alt text](image/wav_plot.png?raw=true) 
+![Alt text](image/model.png?raw=true) 
+
