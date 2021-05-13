@@ -7,8 +7,8 @@ Team Members:
 - Jumana Nadir
 
 
-![alt text](https://drive.google.com/file/d/1ognPv8mUmTsOzv0JnJgOg7AgfRghllE7/view)
+![alt text](https://github.com/FatherOfLove/SJSU_MASTER_PROJECT/blob/master/S10_Poster.pdf)
 
-https://drive.google.com/file/d/1RKQxNFQ0adXA2M2gAJ8WDBY_HF2PGnoE/view
+## video: https://drive.google.com/file/d/1RKQxNFQ0adXA2M2gAJ8WDBY_HF2PGnoE/view
 
 
