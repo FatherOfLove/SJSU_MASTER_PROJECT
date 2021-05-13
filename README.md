@@ -20,6 +20,8 @@ Team Members:
 - PostgreSQL for database
 - Django ORM for database management 
 ![Alt text](image/Stacks.jpg?raw=true)
+
+### ORM for Database
 ![Alt text](image/ORM.png?raw=true)
 
 ## Steps to run the code: 
