@@ -18,7 +18,9 @@ Team Members:
 - Django framework for integration of frontend and backend  
 - JavaScript frame work with CSS and HTML for front end  
 - PostgreSQL for database
-![Alt text](image/Stacks.png?raw=true)
+- Django ORM for database management 
+![Alt text](image/Stacks.jpg?raw=true)
+![Alt text](image/ORM.png?raw=true)
 
 ## Steps to run the code: 
 ### run locally
@@ -62,5 +64,5 @@ Team Members:
 ![Alt text](image/model.png?raw=true) 
 
 ### Results 
-![Alt text](image/results.png?raw=true)
+![Alt text](image/results.jpg?raw=true)
 
