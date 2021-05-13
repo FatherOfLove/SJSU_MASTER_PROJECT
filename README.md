@@ -19,6 +19,8 @@ Team Members:
 - JavaScript frame work with CSS and HTML for front end  
 - PostgreSQL for database
 - Django ORM for database management 
+
+### Stacks
 ![Alt text](image/Stacks.jpg?raw=true)
 
 ### ORM for Database
