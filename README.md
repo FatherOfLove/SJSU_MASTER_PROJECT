@@ -18,6 +18,7 @@ Team Members:
 - Django framework for integration of frontend and backend  
 - JavaScript frame work with CSS and HTML for front end  
 - PostgreSQL for database
+![Alt text](image/Stacks.png?raw=true)
 
 ## Steps to run the code: 
 ### run locally
@@ -47,13 +48,19 @@ Team Members:
 ![Alt text](image/index.jpg?raw=true) 
 
 
-
 ## Our AI Engine:
 ![alt text](https://github.com/FatherOfLove/SJSU_MASTER_PROJECT/blob/master/image/AI%20ENGINE%20.png)
 
-### Part of our data 
+### Dataset Distribution
+![Alt text](image/dataset_distribution.png?raw=true)
+
+#### Part of our data 
 ![Alt text](image/wav_plot.png?raw=true) 
+
 
 ### One of our model
 ![Alt text](image/model.png?raw=true) 
+
+### Results 
+![Alt text](image/results.png?raw=true)
 
