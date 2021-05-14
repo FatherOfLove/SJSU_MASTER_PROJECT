@@ -29,17 +29,18 @@ Team Members:
 ## Steps to run the code: 
 ### run locally
 1. Install the postgreSQL in your computer
+		https://www.postgresqltutorial.com/
 2. Clone the github and goto the folder  
         $git clone https://github.com/FatherOfLove/SJSU_MASTER_PROJECT.git  
-        $cd ./Code/Django_V1/chronus-project/  
+        $cd ./Web App Code/Django_V1/chronus-project/
 3. edit the settings.py in the "./Code/Django_V1/chronus-project/chronus/" folder
-	To fit your database setting(database,user name, password and so on.
+	To fit your database setting(database,user name, password and so on）.
 4. create a virtual environment with python3  
 	$virtualenv -p /usr/local/bin/python3 Dependencies  
 5. Activate the virtual environment  
 	$source Dependencies/bin/activate  
 6. Install dependencies numpy, scipy, requests,tensorflow, keras  
-	$pip install -r ./heroku/requirements.txt  
+	$pip install -r ./requirements.txt  
 7. Run "python manage.py makemigrations" 
 8. Run "python manage.py migrate" ---migrate the database
 9. Run "python manage.py runserver" -- this starts the http server using python Django 
@@ -47,7 +48,7 @@ Team Members:
 
 ### run in the cloud
 - Please follow the README in heroku folder using your setting
-  https://github.com/FatherOfLove/SJSU_MASTER_PROJECT/blob/master/heroku/README.md
+  https://github.com/FatherOfLove/SJSU_MASTER_PROJECT/blob/master/Web%20Heroku%20Deploy%20Code/README.md
 - Or use any other cloud server you like
 
 ## Site available at:https://jjjinc.herokuapp.com/
